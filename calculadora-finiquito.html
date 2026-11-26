@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de finiquito y liquidación 2026</title>
+<meta name="description" content="Calcula tu finiquito o liquidación 2026 según la Ley Federal del Trabajo: aguinaldo, vacaciones, prima vacacional, prima de antigüedad e indemnización. Gratis.">
+<meta name="theme-color" content="#4fb3e8">
+<meta property="og:title" content="Calculadora de finiquito y liquidación 2026">
+<meta property="og:description" content="Cuánto te deben pagar si renuncias o te despiden, concepto por concepto.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2310223a'/%3E%3Cpath d='M7 22l6-7 5 4 7-9' stroke='%23ff7a1a' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"¿Cuál es la diferencia entre finiquito y liquidación?","acceptedAnswer":{"@type":"Answer","text":"El finiquito se paga siempre que termina la relación laboral: salarios pendientes, aguinaldo, vacaciones y prima vacacional proporcionales. La liquidación es lo que se suma cuando el despido es injustificado: indemnización de tres meses, prima de antigüedad y, en ciertos casos, 20 días por año."}},
+{"@type":"Question","name":"¿Me toca prima de antigüedad si renuncio?","acceptedAnswer":{"@type":"Answer","text":"Solo si tienes 15 años o más de servicio. Si te despiden, te toca sin importar la antigüedad."}},
+{"@type":"Question","name":"¿Cuánto tiempo tengo para reclamar mi finiquito?","acceptedAnswer":{"@type":"Answer","text":"Por regla general un año. Si te despidieron, tienes dos meses para demandar la indemnización; antes debes acudir al Centro de Conciliación."}}]}
+</script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="top">
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#10223a"/><path d="M7 22l6-7 5 4 7-9" stroke="#ff7a1a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Peso al Día</a>
+      <ul>
+        <li><a href="./">Inicio</a></li>
+        <li><a href="dolar-hoy.html">Dólar hoy</a></li>
+        <li><a href="calculadora-aguinaldo.html">Aguinaldo</a></li>
+        <li><a href="calculadora-finiquito.html">Finiquito</a></li>
+      </ul>
+    </nav>
+    <div class="hero" style="padding-bottom:28px">
+      <h1 class="in">Calculadora de finiquito y liquidación 2026</h1>
+      <p class="lead in" style="margin:0">Pon tus fechas y tu sueldo: te mostramos cuánto te deben pagar si renuncias o si te despiden, concepto por concepto.</p>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+  <div class="wrap">
+    <section class="band calc">
+      <form id="f" novalidate>
+        <div class="field">
+          <fieldset>
+            <legend>¿Por qué terminó tu trabajo?</legend>
+            <div class="seg">
+              <label><input type="radio" name="motivo" value="renuncia" checked><span>Renuncié</span></label>
+              <label><input type="radio" name="motivo" value="despido"><span>Me despidieron</span></label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="field">
+          <fieldset>
+            <legend>¿Cómo conoces tu sueldo?</legend>
+            <div class="seg">
+              <label><input type="radio" name="tipo" value="mensual" checked><span>Mensual</span></label>
+              <label><input type="radio" name="tipo" value="quincenal"><span>Quincenal</span></label>
+              <label><input type="radio" name="tipo" value="diario"><span>Diario</span></label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="field">
+          <label for="sueldo">Sueldo bruto (antes de descuentos)</label>
+          <input id="sueldo" type="number" inputmode="decimal" min="0" step="any" value="10000">
+          <span class="hint" id="sdhint"></span>
+        </div>
+        <div class="field">
+          <label for="ingreso">Fecha en que entraste</label>
+          <input id="ingreso" type="date" value="2023-03-01">
+        </div>
+        <div class="field">
+          <label for="salida">Último día trabajado</label>
+          <input id="salida" type="date">
+        </div>
+        <div class="field">
+          <label for="pend">Días trabajados que no te han pagado</label>
+          <input id="pend" type="number" inputmode="numeric" min="0" step="1" value="0">
+          <span class="hint">Por ejemplo, los días desde tu última quincena.</span>
+        </div>
+        <div class="field">
+          <label for="vacpend">Días de vacaciones de años anteriores que no tomaste</label>
+          <input id="vacpend" type="number" inputmode="numeric" min="0" step="1" value="0">
+          <span class="hint">Las del año en curso ya se calculan solas.</span>
+        </div>
+        <details style="margin-bottom:18px">
+          <summary>Prestaciones de tu contrato (opcional)</summary>
+          <div class="field" style="margin-top:10px">
+            <label for="dias">Días de aguinaldo</label>
+            <input id="dias" type="number" inputmode="numeric" min="15" step="1" value="15">
+          </div>
+          <div class="field">
+            <label for="prima">Prima vacacional (%)</label>
+            <input id="prima" type="number" inputmode="numeric" min="25" step="1" value="25">
+          </div>
+          <div class="field">
+            <label for="zona">Zona de salario mínimo</label>
+            <select id="zona">
+              <option value="general">General (casi todo el país)</option>
+              <option value="frontera">Zona Libre de la Frontera Norte</option>
+            </select>
+          </div>
+        </details>
+        <div class="field" id="campo20" hidden>
+          <label style="display:flex;gap:10px;align-items:flex-start;font-weight:500"><input type="checkbox" id="veinte" checked style="width:22px;height:22px;flex:none;margin-top:2px">Incluir 20 días por año trabajado</label>
+          <span class="hint">Aplica si el patrón se niega a reinstalarte o si rescindiste por culpa del patrón (art. 50 y 52 LFT). En un acuerdo se negocia.</span>
+        </div>
+        <button class="btn alt" type="button" id="reset">Borrar datos</button>
+      </form>
+
+      <aside class="result" aria-live="polite">
+        <div style="font-weight:600" id="rtitulo">Tu finiquito estimado</div>
+        <div class="big" id="total">$0</div>
+        <div id="rsub">antes de impuestos</div>
+        <ul class="lines" id="lineas"></ul>
+        <p class="note" id="aviso"></p>
+      </aside>
+    </section>
+
+    <div class="ad"><!-- Bloque de anuncio AdSense --></div>
+
+    <section class="band prose">
+      <h2>Finiquito o liquidación: qué te toca</h2>
+      <p>El <strong>finiquito</strong> se paga siempre que dejas un trabajo, renuncies o te corran: los días que trabajaste y no te pagaron, el aguinaldo proporcional, las vacaciones que no tomaste y su prima vacacional.</p>
+      <p>La <strong>liquidación</strong> se suma al finiquito cuando el despido es injustificado: una indemnización de tres meses de salario integrado, la prima de antigüedad de 12 días por año y, en ciertos casos, 20 días de salario por año trabajado.</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Concepto</th><th>Renuncia</th><th>Despido injustificado</th></tr></thead>
+          <tbody>
+            <tr><td>Salarios pendientes, aguinaldo, vacaciones y prima vacacional</td><td>Sí</td><td>Sí</td></tr>
+            <tr><td>Prima de antigüedad (12 días por año)</td><td>Solo con 15 años o más</td><td>Sí</td></tr>
+            <tr><td>Indemnización de 3 meses</td><td>No</td><td>Sí</td></tr>
+            <tr><td>20 días por año</td><td>No</td><td>Según el caso</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Cómo hace las cuentas esta calculadora</h2>
+      <p><strong>Salario diario:</strong> sueldo mensual entre 30. <strong>Vacaciones:</strong> los días que te tocan en tu año de servicio actual según la tabla de Vacaciones Dignas (12 días el primer año, 14 el segundo, hasta 20 el quinto, y luego 2 más cada cinco años), proporcionales al tiempo desde tu último aniversario, más los días pendientes que escribas. <strong>Prima vacacional:</strong> 25 % de las vacaciones, o lo que diga tu contrato.</p>
+      <p><strong>Prima de antigüedad:</strong> 12 días por año, con un salario de al menos un salario mínimo y como máximo dos ($630.08 diarios en la zona general en 2026). <strong>Indemnización:</strong> se calcula con el salario diario integrado, que suma a tu salario la parte proporcional del aguinaldo y la prima vacacional.</p>
+
+      <h2>Preguntas frecuentes</h2>
+      <details><summary>¿Cuánto tiempo tienen para pagarme el finiquito?</summary><p>Debe pagarse al terminar la relación laboral. Si no te pagan, puedes acudir gratis a la Procuraduría Federal de la Defensa del Trabajo (Profedet) o al Centro de Conciliación Laboral de tu estado.</p></details>
+      <details><summary>¿Tengo que firmar mi renuncia para recibir el finiquito?</summary><p>No. El finiquito es tuyo aunque te despidan. Nunca firmes una renuncia ni un recibo en blanco, y revisa que las cantidades coincidan antes de firmar.</p></details>
+      <details><summary>¿Cuánto tiempo tengo para reclamar?</summary><p>Por regla general, un año desde que terminó el trabajo. Si te despidieron, solo tienes dos meses para demandar la indemnización, y primero debes pasar por el Centro de Conciliación.</p></details>
+      <details><summary>¿Me quitan impuestos del finiquito?</summary><p>Sí, una parte puede pagar ISR. Hay montos exentos: el aguinaldo hasta 30 UMA, la prima vacacional hasta 15 UMA y las indemnizaciones hasta 90 UMA por año trabajado. Esta calculadora muestra montos brutos.</p></details>
+      <p class="meta">Salario mínimo 2026: $315.04 general y $440.87 frontera (CONASAMI). Artículos 48, 50, 76, 80, 87, 162, 485 y 486 de la Ley Federal del Trabajo. Resultado informativo; para una demanda, busca asesoría en Profedet o con un abogado laboral.</p>
+    </section>
+
+    <div class="ad"><!-- Bloque de anuncio AdSense --></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="anio">2026</span> Peso al Día · Datos: CONASAMI, LFT.</div>
+    <ul>
+      <li><a href="acerca.html">Acerca y contacto</a></li>
+      <li><a href="privacidad.html">Aviso de privacidad</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+<script src="assets/finiquito.js"></script>
+<script>
+{
+  const $ = id => document.getElementById(id);
+  const f = $('f'), CLAVE = 'pad-finiquito';
+  const divisor = {mensual: 30, quincenal: 15, diario: 1};
+  const hoy = new Date(); const iso = d => d.toISOString().slice(0, 10);
+  if (!$('salida').value) $('salida').value = iso(new Date(Date.UTC(hoy.getFullYear(), hoy.getMonth(), hoy.getDate())));
+  const campos = ['sueldo', 'ingreso', 'salida', 'pend', 'vacpend', 'dias', 'prima', 'zona'];
+  const leer = () => {
+    const v = {motivo: f.motivo.value, tipo: f.tipo.value, veinte: $('veinte').checked};
+    for (const k of campos) v[k] = $(k).value;
+    return v;
+  };
+  const fila = (t, m, cls = '') => `<li class="${cls}"><span>${t}</span><b>${MXN.format(m)}</b></li>`;
+
+  function pintar() {
+    const v = leer();
+    const despido = v.motivo === 'despido';
+    $('campo20').hidden = !despido;
+    const sd = (+v.sueldo || 0) / divisor[v.tipo];
+    $('sdhint').textContent = v.tipo === 'diario' ? '' : `Salario diario: ${MXN.format(sd)}`;
+    const r = FQ.calcular({salarioDiario: sd, ingreso: v.ingreso, salida: v.salida, motivo: v.motivo,
+      diasPendientes: v.pend, vacacionesPendientes: v.vacpend, diasAguinaldo: v.dias,
+      primaVacacional: v.prima, zona: v.zona, veinteDias: v.veinte});
+    $('rtitulo').textContent = despido ? 'Tu liquidación estimada' : 'Tu finiquito estimado';
+    if (!r) {
+      $('total').textContent = '$0'; $('lineas').innerHTML = '';
+      $('aviso').textContent = 'Escribe tu sueldo y revisa que la fecha de salida sea posterior a la de ingreso.';
+      return;
+    }
+    const c = r.c;
+    let h = fila('Días trabajados sin pagar', c.salarioPendiente)
+      + fila(`Aguinaldo proporcional (${r.diasAnioAg} días del año)`, c.aguinaldo)
+      + fila(`Vacaciones (${r.vacDias.toFixed(1)} días)`, c.vacaciones)
+      + fila('Prima vacacional', c.primaVacacional);
+    if (r.tienePrimaAnt) h += fila('Prima de antigüedad', c.primaAntiguedad);
+    if (despido) {
+      h += fila('Indemnización de 3 meses', c.indemnizacion90);
+      if (v.veinte) h += fila('20 días por año', c.indemnizacion20);
+    }
+    h += fila('Total bruto', r.total, 'total');
+    $('lineas').innerHTML = h;
+    $('total').textContent = MXN.format(r.total);
+    const anios = Math.floor(r.anios), meses = Math.floor((r.anios - anios) * 12);
+    const av = [`Antigüedad: ${anios} ${anios === 1 ? 'año' : 'años'} y ${meses} ${meses === 1 ? 'mes' : 'meses'}. Te tocan ${r.vacAnio} días de vacaciones en tu año de servicio actual.`];
+    if (!despido && !r.tienePrimaAnt) av.push('Por renuncia, la prima de antigüedad solo se paga con 15 años o más.');
+    if (despido) av.push(`Salario diario integrado: ${MXN.format(r.sdi)}.`);
+    if (sd > 0 && sd < r.sm) av.push(`Tu salario diario es menor al mínimo de ${MXN.format(r.sm)}.`);
+    $('aviso').textContent = av.join(' ');
+    try { localStorage.setItem(CLAVE, JSON.stringify(v)); } catch (e) {}
+  }
+
+  try {
+    const g = JSON.parse(localStorage.getItem(CLAVE) || 'null');
+    if (g) {
+      f.motivo.value = g.motivo || 'renuncia'; f.tipo.value = g.tipo || 'mensual';
+      $('veinte').checked = g.veinte !== false;
+      for (const k of campos) if (g[k] !== undefined && g[k] !== '') $(k).value = g[k];
+    }
+  } catch (e) {}
+
+  f.addEventListener('input', pintar);
+  f.addEventListener('change', pintar);
+  f.addEventListener('submit', e => e.preventDefault());
+  $('reset').addEventListener('click', () => {
+    try { localStorage.removeItem(CLAVE); } catch (e) {}
+    f.reset(); $('salida').value = iso(new Date(Date.UTC(hoy.getFullYear(), hoy.getMonth(), hoy.getDate()))); pintar();
+  });
+  pintar();
+}
+</script>
+</body>
+</html>

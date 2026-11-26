@@ -26,5 +26,5 @@ jobs:
         run: |
           git config user.name "actualizador-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/tipo-cambio.json
+          git add data/*.json
           git diff --cached --quiet || (git commit -m "Tipo de cambio $(date -u +%F)" && git push)

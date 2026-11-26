@@ -24,10 +24,11 @@
     <nav class="nav" aria-label="Principal">
       <a class="logo" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#10223a"/><path d="M7 22l6-7 5 4 7-9" stroke="#ff7a1a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Peso al Día</a>
       <ul>
-        <li><a href="./">Inicio</a></li>
         <li><a href="dolar-hoy.html">Dólar hoy</a></li>
         <li><a href="calculadora-aguinaldo.html">Aguinaldo</a></li>
         <li><a href="calculadora-finiquito.html">Finiquito</a></li>
+        <li><a href="calculadora-sueldo-neto.html">Sueldo neto</a></li>
+        <li><a href="./#guias">Guías</a></li>
       </ul>
     </nav>
     <section class="hero hero-grid">
@@ -54,7 +55,7 @@
   <div class="wrap">
     <div class="ad"><!-- Bloque de anuncio AdSense --></div>
 
-    <section class="band">
+    <section class="band" id="herramientas">
       <h2>Herramientas gratis para tu dinero</h2>
       <p>Sin registro y sin guardar tus datos: todo se calcula en tu celular o computadora.</p>
       <div class="tools">
@@ -63,15 +64,48 @@
           <span>Cuánto te toca, qué parte está libre de ISR y cuánto te pueden retener.</span>
           <em>Antes del 20 de diciembre</em>
         </a>
+        <a class="tool" href="calculadora-finiquito.html">
+          <b>Finiquito y liquidación</b>
+          <span>Cuánto te deben pagar si renuncias o te despiden, concepto por concepto.</span>
+          <em>Con la ley 2026</em>
+        </a>
+        <a class="tool" href="calculadora-sueldo-neto.html">
+          <b>Sueldo neto: ISR e IMSS</b>
+          <span>Cuánto te llega de tu sueldo después de impuestos y subsidio.</span>
+          <em>Tablas 2026</em>
+        </a>
+        <a class="tool" href="calculadora-vacaciones.html">
+          <b>Vacaciones y prima vacacional</b>
+          <span>Los días que te tocan por antigüedad y cuánto es tu prima.</span>
+          <em>Vacaciones Dignas</em>
+        </a>
         <a class="tool" href="dolar-hoy.html">
           <b>Dólar hoy y convertidor</b>
           <span>Tipo de cambio FIX de Banxico, cambio contra el día anterior e historial.</span>
           <em id="fx2">—</em>
         </a>
-        <a class="tool" href="calculadora-finiquito.html">
-          <b>Calculadora de finiquito y liquidación</b>
-          <span>Cuánto te deben pagar si renuncias o te despiden, concepto por concepto.</span>
-          <em>Con la ley 2026</em>
+        <a class="tool" href="euro-hoy.html">
+          <b>Euro hoy</b>
+          <span>Tipo de cambio del euro en pesos según Banxico, con convertidor.</span>
+          <em>Banxico</em>
+        </a>
+      </div>
+    </section>
+
+    <section class="band" id="guias">
+      <h2>Guías con los datos oficiales de 2026</h2>
+      <div class="tools">
+        <a class="tool" href="salario-minimo-2026.html">
+          <b>Salario mínimo 2026</b>
+          <span>Montos diarios, semanales y mensuales por zona.</span>
+        </a>
+        <a class="tool" href="uma-2026.html">
+          <b>UMA 2026</b>
+          <span>Valor oficial y convertidor de UMAs a pesos.</span>
+        </a>
+        <a class="tool" href="dias-festivos-2027.html">
+          <b>Días festivos 2027</b>
+          <span>Descansos obligatorios, puentes y pago triple.</span>
         </a>
       </div>
     </section>
@@ -88,10 +122,11 @@
 
 <footer>
   <div class="wrap">
-    <div>© <span id="anio">2026</span> Peso al Día · Datos: Banxico, INEGI, SAT.</div>
+    <div>© <span id="anio">2026</span> Peso al Día · Datos oficiales de Banxico, INEGI, SAT y CONASAMI.</div>
     <ul>
       <li><a href="acerca.html">Acerca y contacto</a></li>
       <li><a href="privacidad.html">Aviso de privacidad</a></li>
+      <li><a href="terminos.html">Términos de uso</a></li>
     </ul>
   </div>
 </footer>

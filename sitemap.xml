@@ -2,8 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.pesoaldia.com.mx/</loc><changefreq>daily</changefreq></url>
   <url><loc>https://www.pesoaldia.com.mx/dolar-hoy</loc><changefreq>daily</changefreq></url>
+  <url><loc>https://www.pesoaldia.com.mx/euro-hoy</loc><changefreq>daily</changefreq></url>
   <url><loc>https://www.pesoaldia.com.mx/calculadora-aguinaldo</loc><changefreq>monthly</changefreq></url>
   <url><loc>https://www.pesoaldia.com.mx/calculadora-finiquito</loc><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.pesoaldia.com.mx/acerca</loc><changefreq>yearly</changefreq></url>
-  <url><loc>https://www.pesoaldia.com.mx/privacidad</loc><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.pesoaldia.com.mx/calculadora-sueldo-neto</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.pesoaldia.com.mx/calculadora-vacaciones</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.pesoaldia.com.mx/salario-minimo-2026</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.pesoaldia.com.mx/uma-2026</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.pesoaldia.com.mx/dias-festivos-2027</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.pesoaldia.com.mx/acerca</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.pesoaldia.com.mx/privacidad</loc><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.pesoaldia.com.mx/terminos</loc><changefreq>monthly</changefreq></url>
 </urlset>

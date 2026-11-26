@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de vacaciones y prima vacacional 2026</title>
+<meta name="description" content="Cuántos días de vacaciones te tocan por ley según tu antigüedad y cuánto te deben pagar de prima vacacional. Tabla de Vacaciones Dignas 2026.">
+<meta name="theme-color" content="#4fb3e8">
+<meta property="og:title" content="Calculadora de vacaciones y prima vacacional 2026">
+<meta property="og:description" content="Cuántos días de vacaciones te tocan por ley según tu antigüedad y cuánto te deben pagar de prima vacacional. Tabla de Vacaciones Dignas 2026.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2310223a'/%3E%3Cpath d='M7 22l6-7 5 4 7-9' stroke='%23ff7a1a' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<!-- Código de AdSense aquí cuando te aprueben -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cuándo tengo que tomar mis vacaciones?", "acceptedAnswer": {"@type": "Answer", "text": "Dentro de los seis meses siguientes a que cumples cada año de trabajo. Al menos 12 días deben ser seguidos, si tú lo pides."}}, {"@type": "Question", "name": "¿Me pueden pagar las vacaciones en lugar de tomarlas?", "acceptedAnswer": {"@type": "Answer", "text": "No mientras sigas trabajando: la ley prohíbe cambiarlas por dinero. Solo se pagan si terminas tu relación laboral antes de tomarlas."}}, {"@type": "Question", "name": "¿Cuánto es la prima vacacional?", "acceptedAnswer": {"@type": "Answer", "text": "Mínimo el 25 % del salario de tus días de vacaciones. Tu contrato puede darte más."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="top">
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#10223a"/><path d="M7 22l6-7 5 4 7-9" stroke="#ff7a1a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Peso al Día</a>
+      <ul>
+        <li><a href="dolar-hoy.html">Dólar hoy</a></li>
+        <li><a href="calculadora-aguinaldo.html">Aguinaldo</a></li>
+        <li><a href="calculadora-finiquito.html">Finiquito</a></li>
+        <li><a href="calculadora-sueldo-neto.html">Sueldo neto</a></li>
+        <li><a href="./#guias">Guías</a></li>
+      </ul>
+    </nav>
+    <div class="hero" style="padding-bottom:28px">
+      <h1 class="in">Calculadora de vacaciones y prima vacacional</h1>
+      <p class="lead in" style="margin:0">Pon tu fecha de ingreso y tu sueldo: te decimos cuántos días te tocan y cuánto es tu prima vacacional.</p>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+  <div class="wrap">
+    <section class="band calc">
+      <form id="f" novalidate>
+        <div class="field">
+          <label for="ingreso">Fecha en que entraste a trabajar</label>
+          <input id="ingreso" type="date" value="2022-08-15">
+        </div>
+        <div class="field">
+          <label for="sueldo">Sueldo mensual bruto</label>
+          <input id="sueldo" type="number" inputmode="decimal" min="0" step="any" value="12000">
+        </div>
+        <div class="field">
+          <label for="prima">Prima vacacional (%)</label>
+          <input id="prima" type="number" inputmode="numeric" min="25" step="1" value="25">
+          <span class="hint">La ley marca mínimo 25 %.</span>
+        </div>
+      </form>
+      <aside class="result" aria-live="polite">
+        <div style="font-weight:600">Vacaciones que te tocan</div>
+        <div class="big" id="dias">0 días</div>
+        <div id="rsub"></div>
+        <ul class="lines">
+          <li><span>Años cumplidos</span><b id="anios">0</b></li>
+          <li><span>Pago de tus días de vacaciones</span><b id="pago">$0</b></li>
+          <li><span>Prima vacacional</span><b id="primav">$0</b></li>
+          <li><span>Próximo aniversario</span><b id="aniv">—</b></li>
+          <li class="total"><span>Días en tu siguiente año</span><b id="sig">0</b></li>
+        </ul>
+        <p class="note" id="aviso"></p>
+      </aside>
+    </section>
+    <div class="ad"><!-- Bloque de anuncio AdSense --></div>
+    <section class="band prose">
+      <h2>Tabla de vacaciones 2026 por antigüedad</h2>
+      <p>Desde la reforma conocida como Vacaciones Dignas (artículo 76 de la Ley Federal del Trabajo), el primer año te tocan 12 días, y suben dos por año hasta llegar a 20 en el quinto. A partir del sexto año aumentan dos días cada cinco años.</p>
+      <div class="scroll"><table><thead><tr><th>Años cumplidos</th><th class="n">Días de vacaciones</th></tr></thead><tbody><tr><td>1 año</td><td class="n">12 días</td></tr><tr><td>2 años</td><td class="n">14 días</td></tr><tr><td>3 años</td><td class="n">16 días</td></tr><tr><td>4 años</td><td class="n">18 días</td></tr><tr><td>5 años</td><td class="n">20 días</td></tr><tr><td>6 a 10 años</td><td class="n">22 días</td></tr><tr><td>11 a 15 años</td><td class="n">24 días</td></tr><tr><td>16 a 20 años</td><td class="n">26 días</td></tr><tr><td>21 a 25 años</td><td class="n">28 días</td></tr><tr><td>26 a 30 años</td><td class="n">30 días</td></tr><tr><td>31 a 35 años</td><td class="n">32 días</td></tr></tbody></table></div>
+      <h2>Cómo se calcula la prima vacacional</h2>
+      <p>Multiplica tu salario diario por los días de vacaciones y luego por 25 %. Con un sueldo de $12,000 al mes (salario diario de $400) y 16 días de vacaciones: $400 × 16 = $6,400 de vacaciones pagadas, y la prima es $6,400 × 25 % = <strong>$1,600</strong>.</p>
+      <h2>Preguntas frecuentes</h2>
+      <details><summary>¿Cuándo tengo que tomar mis vacaciones?</summary><p>Dentro de los seis meses siguientes a que cumples cada año de trabajo. Al menos 12 días deben ser seguidos, si tú lo pides.</p></details>
+      <details><summary>¿Me pueden pagar las vacaciones en lugar de tomarlas?</summary><p>No mientras sigas trabajando: la ley prohíbe cambiarlas por dinero. Solo se pagan si terminas tu relación laboral antes de tomarlas.</p></details>
+      <details><summary>¿Cuánto es la prima vacacional?</summary><p>Mínimo el 25 % del salario de tus días de vacaciones. Tu contrato puede darte más.</p></details>
+      <p class="meta">Artículos 76, 78, 79 y 80 de la Ley Federal del Trabajo. Resultado informativo.</p>
+    </section>
+    <div class="ad"><!-- Bloque de anuncio AdSense --></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="anio">2026</span> Peso al Día · Datos oficiales de Banxico, INEGI, SAT y CONASAMI.</div>
+    <ul>
+      <li><a href="acerca.html">Acerca y contacto</a></li>
+      <li><a href="privacidad.html">Aviso de privacidad</a></li>
+      <li><a href="terminos.html">Términos de uso</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+<script src="assets/finiquito.js"></script>
+<script>
+{
+  const $ = id => document.getElementById(id);
+  const f = $('f'), CLAVE = 'pad-vacaciones';
+  const FC = new Intl.DateTimeFormat('es-MX', {day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'});
+  function pintar() {
+    const ini = FQ.fecha($('ingreso').value), sd = (+$('sueldo').value || 0) / 30, pr = Math.max(25, +$('prima').value || 25) / 100;
+    const hoy = new Date(); const t = Date.UTC(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
+    if (!ini || ini > t) { $('dias').textContent = '—'; $('aviso').textContent = 'Revisa tu fecha de ingreso.'; return; }
+    const d0 = new Date(ini);
+    let comp = new Date(t).getUTCFullYear() - d0.getUTCFullYear();
+    if (Date.UTC(new Date(t).getUTCFullYear(), d0.getUTCMonth(), d0.getUTCDate()) > t) comp--;
+    const prox = Date.UTC(d0.getUTCFullYear() + comp + 1, d0.getUTCMonth(), d0.getUTCDate());
+    const dias = comp >= 1 ? FQ.diasVacaciones(comp) : 0;
+    $('dias').textContent = dias + ' días';
+    $('rsub').textContent = comp >= 1 ? `por tu año ${comp} de trabajo` : 'Aún no cumples tu primer año';
+    $('anios').textContent = comp;
+    $('pago').textContent = MXN.format(sd * dias);
+    $('primav').textContent = MXN.format(sd * dias * pr);
+    $('aniv').textContent = FC.format(new Date(prox));
+    $('sig').textContent = FQ.diasVacaciones(comp + 1) + ' días';
+    $('aviso').textContent = comp >= 1 ? 'Debes poder tomarlas dentro de los 6 meses siguientes a tu aniversario.' : 'Al cumplir tu primer año te tocarán 12 días. Si te vas antes, se pagan proporcionales en tu finiquito.';
+    try { localStorage.setItem(CLAVE, JSON.stringify({i: $('ingreso').value, s: $('sueldo').value, p: $('prima').value})); } catch (e) {}
+  }
+  try { const g = JSON.parse(localStorage.getItem(CLAVE) || 'null'); if (g) { $('ingreso').value = g.i; $('sueldo').value = g.s; $('prima').value = g.p; } } catch (e) {}
+  f.addEventListener('input', pintar); f.addEventListener('submit', e => e.preventDefault());
+  pintar();
+}
+</script>
+</body>
+</html>

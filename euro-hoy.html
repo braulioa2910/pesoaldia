@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Precio del euro hoy en pesos mexicanos (Banxico)</title>
+<meta name="description" content="Tipo de cambio del euro hoy en pesos mexicanos según el Banco de México, con historial y convertidor de euros a pesos.">
+<meta name="theme-color" content="#4fb3e8">
+<meta property="og:title" content="Precio del euro hoy en pesos mexicanos (Banxico)">
+<meta property="og:description" content="Tipo de cambio del euro hoy en pesos mexicanos según el Banco de México, con historial y convertidor de euros a pesos.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2310223a'/%3E%3Cpath d='M7 22l6-7 5 4 7-9' stroke='%23ff7a1a' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<!-- Código de AdSense aquí cuando te aprueben -->
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="top">
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#10223a"/><path d="M7 22l6-7 5 4 7-9" stroke="#ff7a1a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Peso al Día</a>
+      <ul>
+        <li><a href="dolar-hoy.html">Dólar hoy</a></li>
+        <li><a href="calculadora-aguinaldo.html">Aguinaldo</a></li>
+        <li><a href="calculadora-finiquito.html">Finiquito</a></li>
+        <li><a href="calculadora-sueldo-neto.html">Sueldo neto</a></li>
+        <li><a href="./#guias">Guías</a></li>
+      </ul>
+    </nav>
+    <div class="hero" style="padding-bottom:28px">
+      <h1 class="in">Precio del euro hoy en México</h1>
+      <p class="lead in" style="margin:0">Tipo de cambio del euro en pesos que publica el Banco de México cada día hábil.</p>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+  <div class="wrap">
+    <section class="band hero-grid" aria-live="polite">
+      <div>
+        <div class="big" id="fx" style="color:var(--ink)">—<small>pesos</small></div>
+        <span class="chip" id="chg" style="background:var(--panel)">Cargando…</span>
+        <p class="meta" id="fxdate"></p>
+      </div>
+      <div class="box">
+        <div style="font-weight:600" id="rango">Últimos días hábiles</div>
+        <div class="fig"><svg id="chart" role="img" aria-label="Gráfica del tipo de cambio peso-euro"></svg></div>
+      </div>
+    </section>
+    <section class="band">
+      <h2>Convertir euros a pesos</h2>
+      <div class="box conv">
+        <div class="field" style="margin:0"><label for="eur">Euros (EUR)</label><input id="eur" type="number" inputmode="decimal" min="0" step="any" value="100"></div>
+        <div class="eq" aria-hidden="true">=</div>
+        <div class="field" style="margin:0"><label for="mxn">Pesos (MXN)</label><input id="mxn" type="number" inputmode="decimal" min="0" step="any"></div>
+      </div>
+    </section>
+    <div class="ad"><!-- Bloque de anuncio AdSense --></div>
+    <section class="band prose">
+      <h2>De dónde sale el tipo de cambio del euro</h2>
+      <p>El Banco de México publica cada día hábil el valor del euro en pesos. Lo calcula con el tipo de cambio FIX del dólar y la equivalencia del euro frente al dólar que da a conocer el Fondo Monetario Internacional. Es una referencia oficial: en bancos y casas de cambio el precio de venta será más alto.</p>
+      <p>¿Buscas el dólar? Consulta el <a href="dolar-hoy.html">precio del dólar hoy</a>.</p>
+      <p class="meta">Fuente: Banco de México, tipos de cambio respecto a otras divisas.</p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="anio">2026</span> Peso al Día · Datos oficiales de Banxico, INEGI, SAT y CONASAMI.</div>
+    <ul>
+      <li><a href="acerca.html">Acerca y contacto</a></li>
+      <li><a href="privacidad.html">Aviso de privacidad</a></li>
+      <li><a href="terminos.html">Términos de uso</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+<script>
+{
+  const $ = id => document.getElementById(id);
+  let tc = 0; const r2 = v => Math.round(v * 100) / 100;
+  $('eur').addEventListener('input', () => { if (tc) $('mxn').value = $('eur').value === '' ? '' : r2($('eur').value * tc); });
+  $('mxn').addEventListener('input', () => { if (tc) $('eur').value = $('mxn').value === '' ? '' : r2($('mxn').value / tc); });
+  fetch('data/euro.json', {cache: 'no-cache'}).then(r => { if (!r.ok) throw 0; return r.json(); }).then(j => {
+    const datos = (j.datos || []).filter(d => typeof d.valor === 'number').sort((a, b) => a.fecha.localeCompare(b.fecha));
+    if (!datos.length) throw 0;
+    const c = cambio(datos); tc = c.hoy.valor;
+    $('fx').firstChild.textContent = NUM4.format(tc);
+    chipCambio($('chg'), c);
+    $('fxdate').textContent = 'Pesos por euro · ' + FECHA.format(aFecha(c.hoy.fecha));
+    const ult = datos.slice(-60); $('rango').textContent = `Últimos ${ult.length} días hábiles`;
+    graficaLinea($('chart'), ult);
+    $('mxn').value = r2($('eur').value * tc);
+  }).catch(() => { $('chg').textContent = 'Estamos actualizando este dato. Vuelve más tarde.'; });
+}
+</script>
+</body>
+</html>

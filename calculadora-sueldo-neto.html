@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de sueldo neto 2026: ISR e IMSS</title>
+<meta name="description" content="Calcula cuánto te llega de sueldo después de ISR, subsidio para el empleo e IMSS con las tablas 2026. Gratis y sin registro.">
+<meta name="theme-color" content="#4fb3e8">
+<meta property="og:title" content="Calculadora de sueldo neto 2026: ISR e IMSS">
+<meta property="og:description" content="Calcula cuánto te llega de sueldo después de ISR, subsidio para el empleo e IMSS con las tablas 2026. Gratis y sin registro.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2310223a'/%3E%3Cpath d='M7 22l6-7 5 4 7-9' stroke='%23ff7a1a' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<!-- Código de AdSense aquí cuando te aprueben -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Qué es el subsidio para el empleo?", "acceptedAnswer": {"@type": "Answer", "text": "Es un apoyo fiscal que reduce el ISR de quienes ganan hasta $11,492.66 al mes en 2026. Equivale a $535.65 mensuales y nunca puede ser mayor que el ISR que te toca pagar."}}, {"@type": "Question", "name": "¿Por qué ganar un poco más puede dejarme con menos neto?", "acceptedAnswer": {"@type": "Answer", "text": "Si tu sueldo pasa de $11,492.66 al mes pierdes el subsidio completo. Por eso alguien que gana $11,500 puede recibir menos neto que alguien que gana $11,490."}}, {"@type": "Question", "name": "¿Si gano el salario mínimo me descuentan algo?", "acceptedAnswer": {"@type": "Answer", "text": "No. A quien gana el salario mínimo no se le retiene ISR, y su cuota del IMSS la paga el patrón."}}]}</script>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="top">
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#10223a"/><path d="M7 22l6-7 5 4 7-9" stroke="#ff7a1a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Peso al Día</a>
+      <ul>
+        <li><a href="dolar-hoy.html">Dólar hoy</a></li>
+        <li><a href="calculadora-aguinaldo.html">Aguinaldo</a></li>
+        <li><a href="calculadora-finiquito.html">Finiquito</a></li>
+        <li><a href="calculadora-sueldo-neto.html">Sueldo neto</a></li>
+        <li><a href="./#guias">Guías</a></li>
+      </ul>
+    </nav>
+    <div class="hero" style="padding-bottom:28px">
+      <h1 class="in">Calculadora de sueldo neto 2026</h1>
+      <p class="lead in" style="margin:0">Escribe tu sueldo bruto y ve cuánto te descuentan de ISR e IMSS y cuánto te llega.</p>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+  <div class="wrap">
+    <section class="band calc">
+      <form id="f" novalidate>
+        <div class="field">
+          <fieldset>
+            <legend>Periodo de tu sueldo</legend>
+            <div class="seg">
+              <label><input type="radio" name="tipo" value="mensual" checked><span>Mensual</span></label>
+              <label><input type="radio" name="tipo" value="quincenal"><span>Quincenal</span></label>
+              <label><input type="radio" name="tipo" value="semanal"><span>Semanal</span></label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="field">
+          <label for="sueldo">Sueldo bruto (antes de descuentos)</label>
+          <input id="sueldo" type="number" inputmode="decimal" min="0" step="any" value="15000">
+        </div>
+        <div class="field">
+          <label for="zona">Zona de salario mínimo</label>
+          <select id="zona">
+            <option value="general">General (casi todo el país)</option>
+            <option value="frontera">Zona Libre de la Frontera Norte</option>
+          </select>
+        </div>
+        <div class="field">
+          <label style="display:flex;gap:10px;align-items:center;font-weight:500"><input type="checkbox" id="imss" checked style="width:22px;height:22px;flex:none">Descontar cuota del IMSS</label>
+          <span class="hint">Desmárcalo si trabajas por honorarios o sin seguro social.</span>
+        </div>
+      </form>
+      <aside class="result" aria-live="polite">
+        <div style="font-weight:600" id="rt">Te llega al mes</div>
+        <div class="big" id="neto">$0</div>
+        <div id="rsub"></div>
+        <ul class="lines">
+          <li><span>Sueldo bruto</span><b id="bruto">$0</b></li>
+          <li><span>ISR según tabla</span><b id="isrc">$0</b></li>
+          <li><span>Subsidio para el empleo (se resta)</span><b id="sub">$0</b></li>
+          <li><span>ISR que te retienen</span><b id="isr">$0</b></li>
+          <li><span>IMSS (estimado)</span><b id="imssv">$0</b></li>
+          <li class="total"><span>Sueldo neto</span><b id="neto2">$0</b></li>
+        </ul>
+        <p class="note" id="aviso"></p>
+      </aside>
+    </section>
+    <div class="ad"><!-- Bloque de anuncio AdSense --></div>
+    <section class="band prose">
+      <h2>Cómo se calcula tu sueldo neto</h2>
+      <p>Tu patrón te retiene ISR con la tarifa mensual del artículo 96 de la Ley del ISR. Ubica tu sueldo en la tabla, le resta el límite inferior, multiplica lo que sobra por el porcentaje de ese renglón y le suma la cuota fija. Si ganas hasta $11,492.66 al mes, a ese ISR se le resta el subsidio para el empleo de $535.65.</p>
+      <p>Además se descuenta tu parte de las cuotas del IMSS, que en total ronda el 2.4 % de tu salario base de cotización. Esta calculadora la estima con las prestaciones mínimas de ley; tu recibo puede variar un poco si tienes más prestaciones, vales o fondo de ahorro.</p>
+      <div class="box">
+        <h3>Ejemplo con $15,000 al mes</h3>
+        <p style="margin:0">El ISR según la tabla es de unos $1,403. Como pasas del límite, no hay subsidio. El IMSS ronda los $394. Te llegan cerca de <strong>$13,203</strong> al mes.</p>
+      </div>
+      <h2>Preguntas frecuentes</h2>
+      <details><summary>¿Qué es el subsidio para el empleo?</summary><p>Es un apoyo fiscal que reduce el ISR de quienes ganan hasta $11,492.66 al mes en 2026. Equivale a $535.65 mensuales y nunca puede ser mayor que el ISR que te toca pagar.</p></details>
+      <details><summary>¿Por qué ganar un poco más puede dejarme con menos neto?</summary><p>Si tu sueldo pasa de $11,492.66 al mes pierdes el subsidio completo. Por eso alguien que gana $11,500 puede recibir menos neto que alguien que gana $11,490.</p></details>
+      <details><summary>¿Si gano el salario mínimo me descuentan algo?</summary><p>No. A quien gana el salario mínimo no se le retiene ISR, y su cuota del IMSS la paga el patrón.</p></details>
+      <p class="meta">Tarifa ISR mensual 2026 (Anexo 8 RMF, DOF 28/12/2025); subsidio para el empleo (DOF 31/12/2025); UMA 2026 $117.31. Resultado estimado e informativo.</p>
+    </section>
+    <div class="ad"><!-- Bloque de anuncio AdSense --></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="anio">2026</span> Peso al Día · Datos oficiales de Banxico, INEGI, SAT y CONASAMI.</div>
+    <ul>
+      <li><a href="acerca.html">Acerca y contacto</a></li>
+      <li><a href="privacidad.html">Aviso de privacidad</a></li>
+      <li><a href="terminos.html">Términos de uso</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+<script src="assets/aguinaldo.js"></script>
+<script src="assets/sueldo.js"></script>
+<script>
+{
+  const $ = id => document.getElementById(id);
+  const f = $('f'), CLAVE = 'pad-sueldo';
+  const aMes = {mensual: 1, quincenal: 30.4 / 15.2, semanal: 30.4 / 7};
+  function pintar() {
+    const tipo = f.tipo.value, s = +$('sueldo').value || 0;
+    const r = SN.calcular({mensual: s * aMes[tipo], zona: $('zona').value, imss: $('imss').checked});
+    const div = 1 / aMes[tipo];
+    $('rt').textContent = tipo === 'mensual' ? 'Te llega al mes' : tipo === 'quincenal' ? 'Te llega por quincena' : 'Te llega por semana';
+    $('neto').textContent = MXN.format(r.neto * div);
+    $('rsub').textContent = `Equivale a ${MXN.format(r.neto)} al mes`;
+    for (const [id, v] of [['bruto', r.bruto], ['isrc', r.isrCausado], ['sub', r.subsidio], ['isr', r.isr], ['imssv', r.imss], ['neto2', r.neto]]) $(id).textContent = MXN.format(v * div);
+    const av = [];
+    if (r.minimo) av.push('Con salario mínimo no te retienen ISR y tu cuota del IMSS la paga el patrón.');
+    else av.push(`Te descuentan el ${r.tasa.toFixed(1)} % de tu sueldo.`);
+    if (!r.minimo && r.bruto > 11492.66 && r.bruto < 12500) av.push('Pasaste por poco el límite del subsidio para el empleo ($11,492.66 al mes).');
+    $('aviso').textContent = av.join(' ');
+    try { localStorage.setItem(CLAVE, JSON.stringify({tipo, s: $('sueldo').value, z: $('zona').value, i: $('imss').checked})); } catch (e) {}
+  }
+  try { const g = JSON.parse(localStorage.getItem(CLAVE) || 'null'); if (g) { f.tipo.value = g.tipo; $('sueldo').value = g.s; $('zona').value = g.z; $('imss').checked = g.i; } } catch (e) {}
+  f.addEventListener('input', pintar); f.addEventListener('change', pintar); f.addEventListener('submit', e => e.preventDefault());
+  pintar();
+}
+</script>
+</body>
+</html>

@@ -41,8 +41,8 @@ Después ve a la pestaña **Actions → Actualizar tipo de cambio → Run workfl
 4. Cambia `https://www.tudominio.com` por tu dominio en `robots.txt` y `sitemap.xml`.
 
 ## Paso 6. Antes de pedir AdSense, rellena esto
-- `privacidad.html`: cambia **NOMBRE DEL RESPONSABLE** y **correo@tudominio.com**.
-- `acerca.html`: cambia **correo@tudominio.com** (usa un correo real que revises).
+- `privacidad.html`: cambia **NOMBRE DEL RESPONSABLE** y **correo@pesoaldia.com.mx**.
+- `acerca.html`: cambia **correo@pesoaldia.com.mx** (usa un correo real que revises).
 - Da de alta el sitio en **Google Search Console** y envía el `sitemap.xml`.
 - Agrega más páginas útiles (ver "Siguientes páginas"). Con 3 páginas AdSense casi siempre rechaza por "contenido de poco valor". Junta de 15 a 25 páginas buenas antes de solicitar.
 

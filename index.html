@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Peso al Día: dólar hoy y calculadoras</title>
+<meta name="description" content="Precio del dólar hoy en México con el tipo de cambio FIX de Banxico y calculadoras gratis de aguinaldo e ISR, actualizadas a 2026.">
+<meta name="theme-color" content="#4fb3e8">
+<meta property="og:title" content="Peso al Día: dólar hoy y calculadoras">
+<meta property="og:description" content="Tipo de cambio oficial del día y calculadoras de aguinaldo e ISR para México.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2310223a'/%3E%3Cpath d='M7 22l6-7 5 4 7-9' stroke='%23ff7a1a' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<!-- AdSense: cuando Google apruebe tu sitio, pega aquí su código. Ejemplo:
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="top">
+  <div class="wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="./"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#10223a"/><path d="M7 22l6-7 5 4 7-9" stroke="#ff7a1a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>Peso al Día</a>
+      <ul>
+        <li><a href="./">Inicio</a></li>
+        <li><a href="dolar-hoy.html">Dólar hoy</a></li>
+        <li><a href="calculadora-aguinaldo.html">Aguinaldo</a></li>
+      </ul>
+    </nav>
+    <section class="hero hero-grid">
+      <div>
+        <h1 class="in">El dólar hoy y tu dinero, en cuentas claras</h1>
+        <p class="lead in">Tipo de cambio oficial de Banxico actualizado cada día hábil y calculadoras gratis para trabajadores en México.</p>
+        <div class="row in">
+          <a class="btn main" href="calculadora-aguinaldo.html">Calcular mi aguinaldo</a>
+          <a class="btn alt" href="dolar-hoy.html">Ver historial del dólar</a>
+        </div>
+      </div>
+      <div class="card in" aria-live="polite">
+        <div style="font-weight:600">Dólar hoy · tipo de cambio FIX</div>
+        <div class="big" id="fx">—<small>MXN</small></div>
+        <span class="chip" id="chg">Cargando…</span>
+        <div class="fig" style="min-height:150px;margin-top:14px"><svg id="mini" role="img" aria-label="Gráfica del tipo de cambio de los últimos días"></svg></div>
+        <div class="meta" id="fxdate"></div>
+      </div>
+    </section>
+  </div>
+</header>
+
+<main id="contenido">
+  <div class="wrap">
+    <div class="ad"><!-- Bloque de anuncio AdSense --></div>
+
+    <section class="band">
+      <h2>Herramientas gratis para tu dinero</h2>
+      <p>Sin registro y sin guardar tus datos: todo se calcula en tu celular o computadora.</p>
+      <div class="tools">
+        <a class="tool" href="calculadora-aguinaldo.html">
+          <b>Calculadora de aguinaldo 2026</b>
+          <span>Cuánto te toca, qué parte está libre de ISR y cuánto te pueden retener.</span>
+          <em>Antes del 20 de diciembre</em>
+        </a>
+        <a class="tool" href="dolar-hoy.html">
+          <b>Dólar hoy y convertidor</b>
+          <span>Tipo de cambio FIX de Banxico, cambio contra el día anterior e historial.</span>
+          <em id="fx2">—</em>
+        </a>
+      </div>
+    </section>
+
+    <section class="band prose">
+      <h2>De dónde salen nuestros datos</h2>
+      <p>El tipo de cambio es el <strong>FIX que publica el Banco de México</strong> cada día hábil, el mismo que se usa para pagar obligaciones en dólares dentro del país. Las calculadoras usan la Ley Federal del Trabajo, la Ley del ISR y los valores oficiales de 2026: UMA de $117.31 diarios (INEGI) y la tarifa mensual de ISR del Anexo 8 de la Resolución Miscelánea Fiscal.</p>
+      <p>Los resultados son estimaciones informativas. Tu recibo de nómina puede variar según tu contrato y otras prestaciones.</p>
+    </section>
+
+    <div class="ad"><!-- Bloque de anuncio AdSense --></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© <span id="anio">2026</span> Peso al Día · Datos: Banxico, INEGI, SAT.</div>
+    <ul>
+      <li><a href="acerca.html">Acerca y contacto</a></li>
+      <li><a href="privacidad.html">Aviso de privacidad</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="assets/site.js"></script>
+<script>
+{
+  cargarTipoCambio().then(({datos}) => {
+    const c = cambio(datos);
+    document.getElementById('fx').firstChild.textContent = NUM4.format(c.hoy.valor);
+    document.getElementById('fx2').textContent = '$' + NUM4.format(c.hoy.valor);
+    chipCambio(document.getElementById('chg'), c);
+    document.getElementById('fxdate').textContent = 'Pesos por dólar · ' + FECHA.format(aFecha(c.hoy.fecha));
+    graficaLinea(document.getElementById('mini'), datos.slice(-30));
+  }).catch(() => {
+    document.getElementById('chg').textContent = 'No se pudo cargar el dato. Intenta más tarde.';
+  });
+}
+</script>
+</body>
+</html>

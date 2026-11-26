@@ -1,0 +1,14 @@
+{
+  "fuente": "Banco de México, serie SF43718 (FIX)",
+  "url_fuente": "https://www.banxico.org.mx/tipcamb/main.do?page=tip&idioma=sp",
+  "actualizado": "2026-11-25T18:30:00Z",
+  "datos": [
+    {"fecha": "2026-11-17", "valor": 18.4677},
+    {"fecha": "2026-11-18", "valor": 18.6723},
+    {"fecha": "2026-11-19", "valor": 19.0270},
+    {"fecha": "2026-11-20", "valor": 19.0228},
+    {"fecha": "2026-11-23", "valor": 19.1648},
+    {"fecha": "2026-11-24", "valor": 19.3668},
+    {"fecha": "2026-11-25", "valor": 19.7040}
+  ]
+}

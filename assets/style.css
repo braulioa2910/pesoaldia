@@ -1,0 +1,115 @@
+/*
+VOICE: clara y directa, como la sección de finanzas de un buen periódico.
+IDEA: un tablero de cambio de casa de cambio / recibo de nómina: cifras grandes y confiables.
+PICTURE: la cifra del día y su gráfica; en la calculadora, el resultado grande junto a los datos.
+COLOUR and TYPE: banda azul cielo, tinta marino, naranja solo para el dato que importa. Outfit + Inter.
+LAYOUT: banda de color arriba con el dato, contenido en columna, anuncios en huecos naturales.
+*/
+:root{color-scheme:light dark;
+  --bg:light-dark(#ffffff,#0b1726);--ink:light-dark(#10223a,#e8f1fa);--soft:light-dark(#4a5d75,#a9bdd2);
+  --sky:light-dark(#4fb3e8,#1d4f73);--skyink:light-dark(#08263f,#eaf6ff);--panel:light-dark(#f2f8fc,#12233a);
+  --line:light-dark(#d8e6f0,#24405f);--accent:#ff7a1a;--accentink:light-dark(#b34a00,#ffa25e);
+  --up:light-dark(#b42318,#ff8a80);--down:light-dark(#067647,#6ee7a8);
+  --ease-out:cubic-bezier(.23,1,.32,1)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16.5px/1.6 Inter,system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3{font-family:Outfit,Inter,sans-serif;font-weight:600;line-height:1.1;text-wrap:balance;margin:0 0 .5em}
+h1{font-size:clamp(32px,5vw,48px)}h2{font-size:clamp(24px,3vw,32px)}h3{font-size:20px}
+p{margin:0 0 1em;max-width:68ch}
+a{color:inherit}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:8px;z-index:9}
+.skip:focus{left:8px}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1140px;margin:0 auto;padding:0 max(5vw,16px)}
+.band{padding:clamp(28px,4vw,56px) 0}
+
+/* encabezado */
+.top{background:var(--sky);color:var(--skyink)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;min-height:64px}
+.logo{display:flex;align-items:center;gap:10px;font:600 21px Outfit,sans-serif;text-decoration:none}
+.logo svg{width:30px;height:30px;flex:none}
+.nav ul{display:flex;gap:4px 18px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.nav ul a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font-weight:500;background:linear-gradient(currentColor,currentColor) 0 calc(100% - 10px)/0 2px no-repeat;transition:background-size .25s var(--ease-out)}
+.nav ul a[aria-current]{background-size:100% 2px}
+@media(hover:hover) and (pointer:fine){.nav ul a:hover{background-size:100% 2px}}
+
+/* héroe con dato */
+.hero{padding:clamp(20px,3vw,40px) 0 clamp(32px,4vw,56px)}
+.hero p.lead{font-size:18px;opacity:.9}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(20px,4vw,48px);align-items:center}
+.big{font:600 clamp(48px,9vw,88px)/1 Outfit,sans-serif;letter-spacing:-.02em;white-space:nowrap}
+.big small{font-size:.32em;font-weight:500;margin-left:.2em}
+.chip{display:inline-flex;gap:6px;align-items:center;padding:4px 12px;border-radius:99px;background:light-dark(#ffffffcc,#0b172699);font-weight:600;font-size:15px;white-space:nowrap}
+.chip.up{color:var(--up)}.chip.down{color:var(--down)}
+.meta{font-size:14px;opacity:.85;margin-top:10px}
+.card{background:var(--bg);color:var(--ink);border-radius:18px;padding:clamp(16px,2.5vw,28px);box-shadow:0 10px 30px #08263f22}
+.fig{position:relative;min-height:240px}.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+.fig text{font:12px Inter,sans-serif;fill:var(--soft)}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:12px;border:0;font:600 16px Inter,sans-serif;text-decoration:none;cursor:pointer;transition:transform .16s var(--ease-out),background .2s}
+.btn.main{background:var(--accent);color:#1d0d00}
+.btn.alt{background:transparent;color:inherit;box-shadow:inset 0 0 0 2px currentColor}
+.btn:active{transform:scale(.97)}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+
+/* tarjetas de herramientas */
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.tool{display:block;text-decoration:none;background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px;transition:transform .2s var(--ease-out)}
+.tool:active{transform:scale(.98)}
+.tool b{display:block;font:600 22px Outfit,sans-serif;margin-bottom:6px}
+.tool span{color:var(--soft)}
+.tool em{display:block;font-style:normal;font:600 34px Outfit,sans-serif;color:var(--accentink);margin-top:14px}
+@media(hover:hover) and (pointer:fine){.tool:hover{transform:translateY(-2px)}}
+
+/* formularios */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(16px,3vw,36px);align-items:start}
+.field{margin-bottom:18px}
+.field label,.field legend{display:block;font-weight:600;margin-bottom:6px}
+.field .hint{display:block;font-size:14px;color:var(--soft);margin-top:4px}
+input[type=number],input[type=date],select{width:100%;min-height:48px;font:16px Inter,sans-serif;padding:10px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+input:focus,select:focus{border-color:var(--sky);outline:3px solid #4fb3e855}
+fieldset{border:0;padding:0;margin:0}
+.seg{display:flex;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:4px;gap:4px}
+.seg label{flex:1;display:flex;align-items:center;justify-content:center;min-height:42px;border-radius:9px;cursor:pointer;font-weight:500;margin:0;text-align:center;padding:0 8px;font-size:15px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg input:checked+span{font-weight:700}
+.seg label:has(input:checked){background:var(--bg);box-shadow:0 1px 4px #08263f22}
+.seg label:has(input:focus-visible){outline:3px solid var(--accent)}
+.result{position:sticky;top:16px;background:var(--sky);color:var(--skyink);border-radius:18px;padding:clamp(18px,3vw,30px)}
+.result .big{font-size:clamp(44px,7vw,68px)}
+.lines{margin:18px 0 0;padding:0;list-style:none}
+.lines li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-top:1px solid light-dark(#08263f26,#eaf6ff26)}
+.lines li b{white-space:nowrap;font-variant-numeric:tabular-nums}
+.lines li.total{font-weight:700;font-size:18px}
+.note{font-size:14px;opacity:.85;margin:14px 0 0}
+
+/* tablas y texto */
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left}
+td.n,th.n{text-align:right;white-space:nowrap}
+.prose{max-width:760px}
+.prose h2{margin-top:1.4em}
+details{border-top:1px solid var(--line);padding:6px 0}
+summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center}
+.box{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:clamp(16px,2.5vw,26px)}
+.conv{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:12px;align-items:end}
+.conv .eq{font:600 24px Outfit,sans-serif;padding-bottom:10px}
+
+/* espacio de anuncio (AdSense) */
+.ad{margin:clamp(20px,3vw,36px) auto;min-height:120px;display:flex;align-items:center;justify-content:center;border:1px dashed var(--line);border-radius:12px;color:var(--soft);font-size:13px}
+.ad:empty::before{content:"Espacio para anuncio"}
+
+footer{background:var(--panel);border-top:1px solid var(--line);margin-top:40px;font-size:15px;color:var(--soft)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:28px;padding-bottom:28px}
+footer ul{list-style:none;margin:0;padding:0;display:flex;gap:4px 18px;flex-wrap:wrap}
+footer a{display:inline-flex;min-height:44px;align-items:center}
+
+.in{animation:in .5s var(--ease-out) both}.in:nth-child(2){animation-delay:60ms}.in:nth-child(3){animation-delay:120ms}
+@keyframes in{from{opacity:0;transform:translateY(12px)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+@media(max-width:760px){.hero-grid,.calc{grid-template-columns:1fr}.result{position:static}}
+@media(max-width:600px){.conv{grid-template-columns:1fr}.conv .eq{display:none}table{font-size:14px}}

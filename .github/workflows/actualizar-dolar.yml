@@ -1,0 +1,30 @@
+name: Actualizar tipo de cambio
+
+on:
+  schedule:
+    # Lunes a viernes a las 12:40 y 14:10 hora del centro de México (18:40 y 20:10 UTC)
+    - cron: "40 18 * * 1-5"
+    - cron: "10 20 * * 1-5"
+  workflow_dispatch: {}   # botón para correrlo a mano
+
+permissions:
+  contents: write
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Descargar FIX de Banxico
+        env:
+          BANXICO_TOKEN: ${{ secrets.BANXICO_TOKEN }}
+        run: python scripts/actualizar_banxico.py
+      - name: Guardar cambios
+        run: |
+          git config user.name "actualizador-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/tipo-cambio.json
+          git diff --cached --quiet || (git commit -m "Tipo de cambio $(date -u +%F)" && git push)

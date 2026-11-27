@@ -1,11 +1,7 @@
 {
  "fuente": "Banco de México, tipo de cambio del euro (serie SF46410)",
- "actualizado": "2026-11-26T19:44:56Z",
+ "actualizado": "2026-11-27T19:40:38Z",
  "datos": [
-  {
-   "fecha": "2025-10-22",
-   "valor": 21.3559
-  },
   {
    "fecha": "2025-10-23",
    "valor": 21.3257
@@ -1101,6 +1097,10 @@
   {
    "fecha": "2026-11-26",
    "valor": 21.6411
+  },
+  {
+   "fecha": "2026-11-27",
+   "valor": 21.5068
   }
  ]
 }

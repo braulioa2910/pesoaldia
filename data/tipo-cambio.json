@@ -1,11 +1,7 @@
 {
  "fuente": "Banco de México, serie SF43718 (FIX)",
- "actualizado": "2026-11-26T19:44:56Z",
+ "actualizado": "2026-11-27T19:40:38Z",
  "datos": [
-  {
-   "fecha": "2025-10-22",
-   "valor": 18.4333
-  },
   {
    "fecha": "2025-10-23",
    "valor": 18.4033
@@ -1101,6 +1097,10 @@
   {
    "fecha": "2026-11-26",
    "valor": 19.7203
+  },
+  {
+   "fecha": "2026-11-27",
+   "valor": 19.6598
   }
  ]
 }
